@@ -28,6 +28,7 @@ use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInt
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Exception\AuthenticationException;
 use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
+use Symfony\Component\Security\Core\User\ChainUserProvider;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
 use Symfony\Component\Security\Guard\AbstractGuardAuthenticator;
@@ -286,6 +287,24 @@ class JWTTokenAuthenticator extends AbstractGuardAuthenticator
     {
         if ($userProvider instanceof PayloadAwareUserProviderInterface) {
             return $userProvider->loadUserByUsernameAndPayload($identity, $payload);
+        }
+
+        if ($userProvider instanceof ChainUserProvider) {
+            foreach ($userProvider->getProviders() as $provider) {
+                try {
+                    if ($provider instanceof PayloadAwareUserProviderInterface) {
+                        return $provider->loadUserByUsernameAndPayload($identity, $payload);
+                    }
+
+                    return $provider->loadUserByUsername($identity);
+                } catch (UsernameNotFoundException $e) {
+                    // try next one
+                }
+            }
+
+            $ex = new UsernameNotFoundException(sprintf('There is no user with name "%s".', $identity));
+            $ex->setUsername($identity);
+            throw $ex;
         }
 
         return $userProvider->loadUserByUsername($identity);

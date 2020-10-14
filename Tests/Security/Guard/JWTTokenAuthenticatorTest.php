@@ -153,6 +153,8 @@ class JWTTokenAuthenticatorTest extends TestCase
      */
     public function testGetUserWithInvalidFirstArg()
     {
+        $this->expectException(\InvalidArgumentException::class);
+
         (new JWTTokenAuthenticator(
             $this->getJWTManagerMock(),
             $this->getEventDispatcherMock(),
@@ -229,12 +231,11 @@ class JWTTokenAuthenticatorTest extends TestCase
         $this->assertEquals($jwtUserToken, $authenticator->createAuthenticatedToken($userStub, 'lexik'));
     }
 
-    /**
-     * @expectedException        \RuntimeException
-     * @expectedExceptionMessage Unable to return an authenticated token
-     */
     public function testCreateAuthenticatedTokenThrowsExceptionIfNotPreAuthenticatedToken()
     {
+        $this->expectException(\RuntimeException::class);
+        $this->expectExceptionMessage('Unable to return an authenticated token');
+
         $userStub = new AdvancedUserStub('lexik', 'test');
 
         $tokenStorage = $this->getTokenStorageMock();

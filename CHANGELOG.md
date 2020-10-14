@@ -1,7 +1,24 @@
 CHANGELOG
 =========
 
-For a diff between two versions https://github.com/lexik/LexikJWTAuthenticationBundle/compare/v1.0.0...v2.6.3
+For a diff between two versions https://github.com/lexik/LexikJWTAuthenticationBundle/compare/v1.0.0...v2.8.0
+
+## [2.8.0](https://github.com/lexik/LexikJWTAuthenticationBundle/tree/v2.8.0) (2020-06-14)
+
+* feature [\#761](https://github.com/lexik/LexikJWTAuthenticationBundle/pull/761) Expose payload in encode/decode exceptions ([chalasr](https://github.com/chalasr))
+* bug [\#755](https://github.com/lexik/LexikJWTAuthenticationBundle/pull/755) Drop php 5.5 compat, Test against php 7.4 + symfony 5.1 and fix deprecations ([acrobat](https://github.com/acrobat))
+* bug [\#683](https://github.com/lexik/LexikJWTAuthenticationBundle/pull/683) Handle ChainUserProvider ([Gemorroj](https://github.com/Gemorroj))
+
+## [2.7.0](https://github.com/lexik/LexikJWTAuthenticationBundle/tree/v2.7.0) (2020-05-29)
+
+* feature [\#753](https://github.com/lexik/LexikJWTAuthenticationBundle/pull/753) Add `set_cookies` option to store JWT in secure cookies ([chalasr](https://github.com/chalasr))
+* feature [\#737](https://github.com/lexik/LexikJWTAuthenticationBundle/pull/737) Enable to keep the modified payload after decode ([cedriclombardot](https://github.com/cedriclombardot))
+
+## [2.6.5](https://github.com/lexik/LexikJWTAuthenticationBundle/tree/v2.6.5) (2019-11-22)
+
+* bug [\#689](https://github.com/lexik/LexikJWTAuthenticationBundle/pull/689) Symfony 4.4/5.0 compatibility ([Deuchnord](https://github.com/Deuchnord))
+* bug [\#687](https://github.com/lexik/LexikJWTAuthenticationBundle/pull/687) Authentication Exception Message from its key ([arslan](https://github.com/arslan))
+* bug [\#675](https://github.com/lexik/LexikJWTAuthenticationBundle/pull/675) Use late static binding on JWTUser ([kaznovac](https://github.com/kaznovac))
 
 ## [2.6.4](https://github.com/lexik/LexikJWTAuthenticationBundle/tree/v2.6.4) (2019-07-27)
 
@@ -32,7 +49,7 @@ For a diff between two versions https://github.com/lexik/LexikJWTAuthenticationB
 
 ## [2.5.4](https://github.com/lexik/LexikJWTAuthenticationBundle/tree/v2.5.4) (2018-08-2)
 
-* bug [\#542](https://github.com/lexik/LexikJWTAuthenticationBundle/pull/542) Fix missing implements breaking JWT header alteration ([tucksaun](https://github.com/tucksaun))
+* bug [\#542](https://github.com/lexik/LexikJWTAuthenticationBundle/pull/542) Fix missing implemenets breaking JWT header alteration ([tucksaun](https://github.com/tucksaun))
 
 ## [2.5.3](https://github.com/lexik/LexikJWTAuthenticationBundle/tree/v2.5.3) (2018-07-6)
 
@@ -124,7 +141,7 @@ For a diff between two versions https://github.com/lexik/LexikJWTAuthenticationB
 * feature [\#230](https://github.com/lexik/LexikJWTAuthenticationBundle/pull/230) Introduce JWTExpiredEvent ([chalasr](https://github.com/chalasr))
 * feature [\#184](https://github.com/lexik/LexikJWTAuthenticationBundle/pull/184) [Security] Deprecate current system in favor of a JWTTokenAuthenticator (Guard) ([chalasr](https://github.com/chalasr))
 * feature [\#218](https://github.com/lexik/LexikJWTAuthenticationBundle/pull/218) Add more flexibility in token extractors configuration ([chalasr](https://github.com/chalasr))
-* feature [\#217](https://github.com/lexik/LexikJWTAuthenticationBundle/pull/217) Refactor TokenExtractors loadi ng for easy overriding ([chalasr](https://github.com/chalasr))
+* feature [\#217](https://github.com/lexik/LexikJWTAuthenticationBundle/pull/217) Refactor TokenExtractors loading for easy overriding ([chalasr](https://github.com/chalasr))
 * feature [\#202](https://github.com/lexik/LexikJWTAuthenticationBundle/pull/202) Exceptions simplified ([Spomky](https://github.com/Spomky))
 * feature [\#201](https://github.com/lexik/LexikJWTAuthenticationBundle/pull/201) Remove deprecated request injections ([chalasr](https://github.com/chalasr))
 * feature [\#196](https://github.com/lexik/LexikJWTAuthenticationBundle/pull/196) Make *_key_path config options not mandatory ([chalasr](https://github.com/chalasr))
